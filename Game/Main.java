@@ -3,6 +3,7 @@ package Game;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 import java.util.Scanner;
 
 public class Main {
@@ -10,14 +11,14 @@ public class Main {
 
         List<Boxer> boxerList = new ArrayList<>(); // making a list for keeping objects
 
-        Boxer f1 = new Boxer("Fatih", 0, randHealth(), randWeight(), 0); // creating boxers
-        Boxer f2 = new Boxer("Esra", 0, randHealth(), randWeight(), 0);
-        Boxer f3 = new Boxer("Osman", 0, randHealth(), randWeight(), 0);
-        Boxer f4 = new Boxer("Talha", 0, randHealth(), randWeight(), 0);
-        Boxer f5 = new Boxer("Esma", 0, randHealth(), randWeight(), 0);
-        Boxer f6 = new Boxer("Hadise", 0, randHealth(), randWeight(), 0);
-        Boxer f7 = new Boxer("Elif", 0, randHealth(), randWeight(), 0);
-        Boxer f8 = new Boxer("Ali", 0, randHealth(), randWeight(), 0);
+        Boxer f1 = new Boxer("Fatih", 0, randHealth(), randWeight(), randDodge()); // creating boxers
+        Boxer f2 = new Boxer("Esra", 0, randHealth(), randWeight(), randDodge());
+        Boxer f3 = new Boxer("Osman", 0, randHealth(), randWeight(), randDodge());
+        Boxer f4 = new Boxer("Talha", 0, randHealth(), randWeight(), randDodge());
+        Boxer f5 = new Boxer("Esma", 0, randHealth(), randWeight(), randDodge());
+        Boxer f6 = new Boxer("Hadise", 0, randHealth(), randWeight(), randDodge());
+        Boxer f7 = new Boxer("Elif", 0, randHealth(), randWeight(), randDodge());
+        Boxer f8 = new Boxer("Ali", 0, randHealth(), randWeight(), randDodge());
 
         boxerList.add(f1); // adding boxers to list
         boxerList.add(f2);
@@ -90,6 +91,13 @@ public class Main {
         return random.nextInt(max - min + 1) + min;
     }
 
+    public static int randDodge() { // for randomly assign players dodge chance
+        Random random = new Random();
+        int min = 10;
+        int max = 50;
+        return random.nextInt(max - min + 1) + min;
+    }
+
     public static void showMatches() {
         String[] matches = {
                 "1. Match : Fatih  - Esra",
@@ -111,6 +119,8 @@ public class Main {
 
         System.out.println("---------------------");
         System.out.print("Choose your match : ");
-        return input.nextInt();
+        int select = input.nextInt();
+
+        return select;
     }
 }
